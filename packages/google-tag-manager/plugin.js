@@ -10,7 +10,7 @@ export default ({ app: { router } }) => {
     router.afterEach((to, from) => {
       setTimeout(() => {
         window['<%= options.layer %>'].push(to.gtm || { event: 'nuxtRoute', pageType: 'PageView', pageUrl: to.fullPath, routeName: to.name })
-      }, 0)
+      }, options.pageTrackingDelay || 0)
     })
   }
 <% } %>
